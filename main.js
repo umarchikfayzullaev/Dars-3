@@ -16,9 +16,9 @@ app.get("/", (req, res)=>{
 })
 
 //get users
-app.get("/user", (req, res)=>{
+app.get("/user", async(req, res)=>{
 
-    const content = fs.readFile(path.join(__dirname, "data.txt"), "utf-8", (err, data)=>{
+    const content = fs.readFile(path.join(__dirname, "data.txt"),"utf-8", (err, data)=>{
         if(err){
             console.log(err);
         }else {
@@ -30,7 +30,7 @@ app.get("/user", (req, res)=>{
     const users = await JSON.parse(content)
     console.log(users);
 
-    res.status(200).send(users)
+    res.status(200).send(content)
 })
 
 
