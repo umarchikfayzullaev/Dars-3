@@ -18,7 +18,7 @@ app.get("/", (req, res)=>{
 //get users
 app.get("/user", async(req, res)=>{
 
-    const content = fs.readFile(path.join(__dirname, "data.txt"),"utf-8", (err, data)=>{
+    const content = fs.readFileSync(path.join(__dirname, "data.txt"),"utf-8", (err, data)=>{
         if(err){
             console.log(err);
         }else {
